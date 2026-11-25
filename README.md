@@ -1,54 +1,64 @@
-DATABRICKS – MEDALLION PROJECT
+🚀 Building an End-to-End Data Pipeline with Databricks: The Medallion Architecture Project!
+
+Data quality is everything in Data Engineering. If your raw data is messy, your reports and dashboards will be wrong.
+To solve this, I recently built a complete Databricks Medallion Project.
+
+What is Medallion Architecture in Databricks?
+The Medallion Architecture is a data-design pattern used in Databricks Data Engineering to improve data quality step-by-step through three layers:
+🥉 Bronze Layer (Raw): Data exactly as it is received from the source (in this case, Snowflake). It often contains duplicates, nulls, and incorrect data.
+🥈 Silver Layer (Cleaned): Validated, cleaned, and transformed data. Here, I handled data-type casting (e.g., decimals, integers) and calculated metrics like total order amounts.
+🥇 Gold Layer (Business Ready): The final target layer. Aggregated, high-quality data partitioned for optimal performance and ready for BI dashboards and analytics.
+
+Project Highlights:
+🔹 Connected to Snowflake using the Spark Connector.
+🔹 Handled real-world scenarios (working with raw data folders, not just single files).
+🔹 Masked sensitive credentials (security first!).
+🔹 Orchestrated the full Bronze ➔ Silver ➔ Gold pipeline.
+I’ve documented the step-by-step execution guide and uploaded the code scripts.
+
+Try It!
 https://github.com/jeyasriperumalsamynz/Databricks---Medallion-Project
 
 EXECUTION STEPS
-1.	Verify Source Data (Snowflake)
-2.	Go to Databricks -- Create Three Notebooks --
-Bronze, Silver, Gold
+Step 1: Verify Source      Data (Snowflake)
+
+Step 2: Go to Databricks      -- Create Three Notebooks --
+      Bronze, Silver, Gold
 https://www.databricks.com/learn/free-edition
-3.	Open Bronze Notebook -- Create Catalog
-   				Schema
-    				Volume
-4.	In the same Bronze Notebook - Extract Data
-From Snowflake (Source Data) using Spark CONNECTOR
-# NOTE: Snowflake credentials have been masked for security. 
-# To run this code, please download the source data from GitHub: [https://github.com/jeyasriperumalsamynz/Databricks---Medallion-Project/tree/main/2.%20Raw%20Data]
-spark.read.format("snowflake").option("sfURL","XXXXX-ci54681.snowflakecomputing.com").option("sfAccount"," XXXXXXX ").option("sfUser","XXXXXXX").option("sfPassword"," XXXXXXX @uk").option("sfDatabase","XXXXX").option("sfSchema","XXXXXX").option("sfRole","XXXXXX").option("sfWarehouse","XXXXXX").option("dbtable","srctab").load().write.mode("overwrite").parquet("/Volumes/procat/proschema/provolume/snowflake_orders")
-Here is the actual code. Since I cannot share my Snowflake username and password, I have masked them with 'XXXXX'. Instead, I will provide a link to download the source data from GitHub. Create Bronze Orders Table Using Extracted Data.
 
-In the real world, we do not just connect to Snowflake, and we rarely deal with a single file. Data Engineers connect to many cloud services (AWS S3, Azure Data Lake, Google Cloud Storage, MongoDB, Salesforce, etc.). Moreover, we cannot expect just one file; we have to deal with folders.
-
-
-5.	Create Bronze Orders Table Using Extracted Data
-
-Try: Code Scripts: BRONZE.ipynb
+Step 3: Open Bronze      Notebook -- Create Catalog
+                                      Schema
+                                      Volume
+Step 4: In the same      Bronze Notebook - Extract Data
+      From Snowflake (Source Data) using Spark CONNECTOR
+  
+Step 5: Create Bronze Orders Table Using Extracted Data
+File Name: Code Scripts: BRONZE.ipynb
 https://pastebin.com/Pp01S3ce - Run each cell
-
-6.	Go to Silver Notebook - Create Silver_Order table from bronze table
-after below processing
+  
+Step 6: Go to Silver Notebook - Create Silver_Order table from bronze table after below processing
 cast unit_price as decimal
 cast quantity as integer
 multiply unit_price * quantity
-
-Try: Code Scripts: SILVER.ipynb
+File Name: Code Scripts: SILVER.ipynb
 https://pastebin.com/HV5Q3KcS - Run each cell
 
-7.	Go to Gold notebook - Create gold_order table with partition
- 	Order year
- 	Order month
-Try: Code Scripts: GOLD.ipynb
+Step 7: Go to Gold      notebook - Create gold_order table with partition
+              Order      year
+              Order      month
+File Name: Code Scripts: GOLD.ipynb
 https://pastebin.com/VEDHSSTC - Run each cell
+  
+Step 8: Insert the data      from silver table to Gold table by extracting
+              Year      and Month from order date in silver table
+              (Dynamic      Partitions)
 
-8.	Insert the data from silver table to Gold table by extracting
- 	Year and Month from order date in silver table
- 	(Dynamic Partitions)
-9.	Orchestrate the entire Pipeline
+Step 9: Orchestrate the entire Pipeline
 
-
-How to open the (Code Scripts) .ipynb file on your PC or Run the Pastebin code
-1. Open your web browser and go to your Databricks workspace.
-2. Go to the folder where you want the notebook.
-3. Click the Import button (or right-click in the folder and select Import).
-4. Select the .ipynb file you just downloaded.
-5. Click on the newly imported notebook and run one by one
-6. Download clean data Results
+📂 Check out the GitHub repository here:
+https://github.com/jeyasriperumalsamynz/Databricks---Medallion-Project
+📄 View the full execution steps in the attached PDF!
+  
+📂 Check out the GitHub repository here:
+https://lnkd.in/eM2Bb6wP
+📄 View the full execution steps in the attached PDF!
