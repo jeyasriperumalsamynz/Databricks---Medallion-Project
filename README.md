@@ -58,7 +58,3 @@ Step 9: Orchestrate the entire Pipeline
 📂 Check out the GitHub repository here:
 https://github.com/jeyasriperumalsamynz/Databricks---Medallion-Project
 📄 View the full execution steps in the attached PDF!
-  
-📂 Check out the GitHub repository here:
-https://lnkd.in/eM2Bb6wP
-📄 View the full execution steps in the attached PDF!
