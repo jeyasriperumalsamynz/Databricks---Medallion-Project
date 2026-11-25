@@ -20,6 +20,7 @@ Try It!
 https://github.com/jeyasriperumalsamynz/Databricks---Medallion-Project
 
 EXECUTION STEPS
+
 Step 1: Verify Source      Data (Snowflake)
 
 Step 2: Go to Databricks      -- Create Three Notebooks --
