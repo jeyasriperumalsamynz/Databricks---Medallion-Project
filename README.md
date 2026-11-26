@@ -20,6 +20,7 @@ Try It!
 https://github.com/jeyasriperumalsamynz/Databricks---Medallion-Project
 
 EXECUTION STEPS
+
 Step 1: Verify Source      Data (Snowflake)
 
 Step 2: Go to Databricks      -- Create Three Notebooks --
@@ -57,8 +58,4 @@ Step 9: Orchestrate the entire Pipeline
 
 📂 Check out the GitHub repository here:
 https://github.com/jeyasriperumalsamynz/Databricks---Medallion-Project
-📄 View the full execution steps in the attached PDF!
-  
-📂 Check out the GitHub repository here:
-https://lnkd.in/eM2Bb6wP
 📄 View the full execution steps in the attached PDF!
